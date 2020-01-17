@@ -6,6 +6,13 @@ USER root
 WORKDIR /root
 
 
+# Install Developer Toolset 8 (for GCC 8):
+
+RUN true \
+    && yum install -y centos-release-scl \
+    && yum install -y devtoolset-8
+
+
 # Install TensorFlow:
 
 RUN true \
