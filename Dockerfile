@@ -16,7 +16,7 @@ RUN true \
 # Install TensorFlow:
 
 RUN true \
-    && conda install tensorflow-gpu=2.1.0
+    && pip install tensorflow-gpu==2.2.0
 
 
 # Install PyTorch:
