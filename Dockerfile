@@ -13,16 +13,22 @@ RUN true \
     && yum install -y devtoolset-8
 
 
-# Install TensorFlow:
-
-RUN true \
-    && pip install tensorflow-gpu==2.2.0
-
-
 # Install PyTorch:
 
-RUN true \
-    && conda install pytorch-gpu=1.3.1
+RUN conda install -c pytorch \
+    pytorch=1.7.1 \
+    torchvision=0.8.2 \
+    torchaudio=0.7.2 \
+    cudatoolkit=11
+
+
+# Install TensorFlow:
+
+RUN pip install \
+    tensorflow-gpu==2.4.1 \
+    tensorflow-addons==0.12.0 \
+    tensorflow-probability==0.12.1 \
+    tensorflow-estimator==2.4.0
 
 
 # Clean up:
