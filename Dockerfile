@@ -15,26 +15,22 @@ RUN true \
 
 # Install TensorFlow:
 
-# TensorFlow v2.4 wants libcusolver.10, not libcusolver.11, even with CUDA-11:
-RUN true \
-    && yum install -y cuda-cusolver-10-2 \
-    && ln -s /usr/local/cuda-10.2/lib64/libcusolver*.so* /usr/local/cuda-11.2/lib64/
-
 RUN pip install \
-    tensorflow-gpu==2.4.1 \
-    tensorflow-addons==0.12.0 \
-    tensorflow-probability==0.12.1 \
-    tensorflow-estimator==2.4.0
+    tensorflow-gpu==2.6.0 \
+    tensorflow-addons==0.14.0 \
+    tensorflow-probability==0.13.0 \
+    tensorflow-estimator==2.6.0
 
 
 # Install PyTorch:
 
 # Need to use pip to make PyTorch uses system-wide CUDA libs:
 RUN pip install \
-    torch==1.7.1+cu110 \
-    torchvision==0.8.2+cu110 \
-    torchaudio===0.7.2 \
+    torch==1.9.0+cu111 \
+    torchvision==0.10.0+cu111 \
+    torchaudio==0.9.0\
     -f https://download.pytorch.org/whl/torch_stable.html
+
 
 # Clean up:
 
