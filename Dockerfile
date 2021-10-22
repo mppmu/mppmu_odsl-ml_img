@@ -15,7 +15,7 @@ RUN true \
 
 # Install TensorFlow:
 
-RUN pip install \
+RUN pip3 install \
     tensorflow-gpu==2.6.0 \
     tensorflow-addons==0.14.0 \
     tensorflow-probability==0.13.0 \
@@ -25,7 +25,7 @@ RUN pip install \
 # Install PyTorch:
 
 # Need to use pip to make PyTorch uses system-wide CUDA libs:
-RUN pip install \
+RUN pip3 install \
     torch==1.9.0+cu111 \
     torchvision==0.10.0+cu111 \
     torchaudio==0.9.0\
