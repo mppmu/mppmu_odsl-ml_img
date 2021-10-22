@@ -18,7 +18,7 @@ RUN true \
 RUN pip3 install \
     tensorflow-gpu==2.6.0 \
     tensorflow-addons==0.14.0 \
-    tensorflow-probability==0.13.0 \
+    tensorflow-probability==0.14.1 \
     tensorflow-estimator==2.6.0
 
 
