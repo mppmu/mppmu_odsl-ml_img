@@ -1,16 +1,9 @@
-FROM mppmu/julia-anaconda:co7-jl17-ac3202111-cu113
+FROM mppmu/julia-anaconda:ub20-jl17-ac3202111-cu113
 
 # User and workdir settings:
 
 USER root
 WORKDIR /root
-
-
-# Install Developer Toolset 8 (for GCC 8):
-
-RUN true \
-    && yum install -y centos-release-scl \
-    && yum install -y devtoolset-8
 
 
 # Install TensorFlow:
@@ -30,11 +23,6 @@ RUN pip3 install \
     torchvision==0.11.1+cu113 \
     torchaudio==0.10.0+cu113 \
     -f https://download.pytorch.org/whl/cu113/torch_stable.html
-
-# Clean up:
-
-RUN true \
-    && yum clean all
 
 
 # Final steps
