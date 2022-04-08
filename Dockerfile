@@ -9,10 +9,10 @@ WORKDIR /root
 # Install TensorFlow:
 
 RUN pip3 install \
-    tensorflow-gpu==2.7.0 \
-    tensorflow-addons==0.15.0 \
-    tensorflow-probability==0.15.0 \
-    tensorflow-estimator==2.7.0
+    tensorflow-gpu==2.8.0 \
+    tensorflow-addons==0.16.1 \
+    tensorflow-probability==0.16.0 \
+    tensorflow-estimator==2.8.0
 
 
 # Install PyTorch:
