@@ -9,10 +9,10 @@ WORKDIR /root
 # Install TensorFlow:
 
 RUN pip3 install \
-    tensorflow-gpu==2.9.1 \
+    tensorflow-gpu==2.10.0 \
     tensorflow-addons==0.17.1 \
-    tensorflow-probability==0.17.0 \
-    tensorflow-estimator==2.9.0
+    tensorflow-probability==0.18.0 \
+    tensorflow-estimator==2.10.0
 
 
 # Install PyTorch:
@@ -28,7 +28,7 @@ RUN pip3 install \
 # Install JAX:
 
 RUN pip3 install \
-    --upgrade "jax[cuda]==0.3.15" "jaxlib[cuda]==0.3.15" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+    --upgrade "jax[cuda]==0.3.17" "jaxlib[cuda]==0.3.15" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 
 # Final steps
