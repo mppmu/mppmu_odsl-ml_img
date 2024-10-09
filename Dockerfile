@@ -9,8 +9,7 @@ WORKDIR /root
 # Install TensorFlow:
 
 RUN pip3 install --upgrade \
-    tensorflow~=2.16.2 \
-    tensorflow-addons \
+    tensorflow~=2.17.0 \
     tensorflow-probability \
     tensorflow-estimator
 
@@ -19,7 +18,7 @@ RUN pip3 install --upgrade \
 
 # Need to use pip to make PyTorch uses system-wide CUDA libs:
 RUN pip3 install --upgrade \
-    torch==2.3.1 \
+    torch~=2.4.1 \
     torchvision \
     torchaudio
 
@@ -27,7 +26,7 @@ RUN pip3 install --upgrade \
 # Install JAX:
 
 RUN pip3 install --upgrade \
-    "jax[cuda12]==0.4.30"
+    "jax[cuda12]~=0.4.34"
 
 # Final steps
 
