@@ -26,7 +26,7 @@ RUN pip3 install --upgrade \
 # Install JAX:
 
 RUN pip3 install --upgrade \
-    "jax[cuda12]~=0.4.35"
+    "jax[cuda12]~=0.5.0"
 
 # Final steps
 
