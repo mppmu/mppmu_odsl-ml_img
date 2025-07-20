@@ -1,4 +1,4 @@
-FROM mppmu/julia-conda:ub22-jl111-mf-cu126
+FROM mppmu/julia-conda:ub24-jl111-pixi-cu126
 
 # User and workdir settings:
 
@@ -8,7 +8,7 @@ WORKDIR /root
 
 # Install TensorFlow:
 
-RUN pip3 install --upgrade \
+RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
     tensorflow~=2.19.0 \
     tensorflow-probability \
     tensorflow-estimator
@@ -16,17 +16,17 @@ RUN pip3 install --upgrade \
 
 # Install PyTorch:
 
-# Need to use pip to make PyTorch uses system-wide CUDA libs:
-RUN pip3 install --upgrade --index-url https://download.pytorch.org/whl/cu126 \
-    torch~=2.6.0 \
+RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
+    torch~=2.7.1 \
     torchvision \
     torchaudio
 
 
 # Install JAX:
 
-RUN pip3 install --upgrade \
-    "jax[cuda12]~=0.5.2"
+RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
+    "jax[cuda12]~=0.5.3"
+
 
 # Final steps
 
