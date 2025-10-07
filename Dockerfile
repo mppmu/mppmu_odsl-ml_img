@@ -1,4 +1,4 @@
-FROM mppmu/julia-conda:ub24-jl111-pixi-cu126
+FROM mppmu/julia-conda:ub24-jl112-pixi-cu128
 
 # User and workdir settings:
 
@@ -9,15 +9,17 @@ WORKDIR /root
 # Install TensorFlow:
 
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    tensorflow~=2.19.0 \
+    tensorflow~=2.20.0 \
     tensorflow-probability \
     tensorflow-estimator
 
 
 # Install PyTorch:
 
+# Install PyTorch:
+
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    torch~=2.7.1 \
+    torch~=2.8.0 \
     torchvision \
     torchaudio
 
@@ -25,7 +27,7 @@ RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
 # Install JAX:
 
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    "jax[cuda12]~=0.5.3"
+    "jax[cuda12]~=0.7.2"
 
 
 # Final steps
