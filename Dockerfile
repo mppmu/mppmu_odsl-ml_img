@@ -25,6 +25,9 @@ RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
     "jax[cuda12]~=0.9.0"
 
+# Install Horovod:
+RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
+    "horovod[tensorflow,pytorch]"
 
 # Final steps
 
