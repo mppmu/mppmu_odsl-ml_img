@@ -16,15 +16,14 @@ RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
 # Install PyTorch:
 
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    torch~=2.9.1 \
+    torch~=2.10.0 \
     torchvision \
     torchaudio
-
 
 # Install JAX:
 
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    "jax[cuda12]~=0.8.2"
+    "jax[cuda12]~=0.9.0"
 
 
 # Final steps
