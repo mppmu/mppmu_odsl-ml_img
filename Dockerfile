@@ -9,7 +9,7 @@ WORKDIR /root
 # Install TensorFlow:
 
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    tensorflow~=2.20.0 \
+    tensorflow~=2.21.0 \
     tensorflow-probability \
     tensorflow-estimator
 
