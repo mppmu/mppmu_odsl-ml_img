@@ -12,9 +12,12 @@ WORKDIR /root
 # in the image - "[and-cuda]" makes it bring its own CUDA 12 runtime. Note that
 # the TensorFlow builds for linux-aarch64 are CPU-only in any case.
 
+# TensorFlow Probability needs the "tf" extra, it depends on tf-keras (the
+# standalone Keras 2) which TensorFlow itself doesn't pull in any more:
+
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
     "tensorflow[and-cuda]~=2.21.0" \
-    tensorflow-probability \
+    "tensorflow-probability[tf]" \
     tensorflow-estimator
 
 # Install PyTorch:
@@ -38,9 +41,10 @@ RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
 RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
     "jax[cuda13-local]~=0.11.0"
 
-# Install Horovod:
-RUN cd "$PIXI_GLOBALPRJ" && pixi add --pypi \
-    "horovod[tensorflow,pytorch]"
+# Note: Horovod has been removed. Its last release (0.28.1) is from June 2023
+# and upstream development has stopped, so it doesn't build against current
+# TensorFlow and PyTorch versions. Use "torch.distributed"/"tf.distribute" or
+# mpi4py (available in the image) instead.
 
 # Final steps
 
